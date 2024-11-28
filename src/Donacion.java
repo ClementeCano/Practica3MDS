@@ -29,4 +29,9 @@ public class Donacion {
         assert(fecha != null);
         this.fecha = fecha;
     }
+
+    @Override
+    public String toString() {
+        return "\t"+this.getClass().getName() + ": Cantidad : "+ cantidad + ": Fecha : "+fecha;
+    }
 }

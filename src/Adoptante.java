@@ -3,28 +3,28 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.ArrayList;
 public class Adoptante extends Socio{
-    private List<Adopcion> animales;
+    private List<Adopcion> adopciones;
     
     public Adoptante(Date fecha) {
 
         assert (fecha != null);
         
         super(fecha);
-        animales = new ArrayList<Adopcion>();
+        adopciones = new ArrayList<Adopcion>();
     }
 
     protected void addAdopcion(Adopcion adopcion){
         assert(adopcion != null);
-        animales.add(adopcion);
+        adopciones.add(adopcion);
     }
 
     protected void rmAdopcion(Adopcion adopcion){
         assert(adopcion != null);
-        animales.remove(adopcion);
+        adopciones.remove(adopcion);
     }
 
     public Enumeration<Adopcion> getAdopciones() {
-        return java.util.Collections.enumeration(animales);
+        return java.util.Collections.enumeration(adopciones);
     }
     
     public void adoptar(Animal animal, Voluntario voluntario){
@@ -32,4 +32,6 @@ public class Adoptante extends Socio{
         assert(animal != null);
         voluntario.tramitarAdopcion(animal, this);
     }
+
+    
 }

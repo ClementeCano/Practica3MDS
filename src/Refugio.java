@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 public class Refugio {
@@ -26,11 +27,11 @@ public class Refugio {
 
 
     //METODOS ANIMALESREGFUGIADOS
-    public List<Animal> getAnimalesRefugiados() {
-        return animalesRefugiados;
+    public Enumeration<Animal> getAnimalesRefugiados() {
+        return java.util.Collections.enumeration(animalesRefugiados);
     }
 
-    public void addAnimalRefugiado(Animal a){
+    protected void addAnimalRefugiado(Animal a){
         assert(a != null);
         animalesRefugiados.add(a);
     }
@@ -45,8 +46,8 @@ public class Refugio {
 
 
     //METODOS ANIMALESREGISTRADOS
-    public List<Animal> getAnimalesRegistrados() {
-        return animalesRefugiados;
+    public Enumeration<Animal> getAnimalesRegistrados() {
+        return java.util.Collections.enumeration(animalesRegistrados);
     }
 
     protected void addAnimalRegistrado(Animal a){
@@ -54,19 +55,17 @@ public class Refugio {
         animalesRegistrados.add(a);
     }
 
-    public void rmAnimalRegistrado(Animal a){
+    protected void rmAnimalRegistrado(Animal a){
         assert(a != null);
         animalesRegistrados.remove(a);
     }
 
+    
     //METODOS SO
-    public List<Socio> getSocios() {
-        return socios;
+    public Enumeration<Socio> getSocios() {
+        return java.util.Collections.enumeration(socios);
     }
 
-    public void setSocios(List<Socio> socios) {
-        this.socios = socios;
-    }
 
     public void registrar(Animal a){
         assert(animalesRegistrados != null);
@@ -80,5 +79,15 @@ public class Refugio {
     //              ¿Por qué es protected?
     protected void rmSocio(Socio s){
         socios.remove(s);
+    }
+
+    protected void addSocio(Socio s){
+        assert(s != null);
+        socios.add(s);
+    }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName();
     }
 }

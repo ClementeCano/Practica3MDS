@@ -1,34 +1,12 @@
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Enumeration;
 import java.util.List;
+import java.util.Date;
 
-public class Voluntario extends Socio{
+// Clase Voluntario
+public class VoluntarioImpl implements InterfazVoluntario {
+    private List<Animal> animalesRegistrados = new ArrayList<>();
 
-    private List<Adopcion> tramites;
-
-    public Voluntario(Date fecha) {
-        assert(fecha != null);
-        super(fecha);
-        tramites = new ArrayList<>();
-    }
-
-    public Enumeration<Adopcion> getTramites() {
-        return java.util.Collections.enumeration(tramites);
-    }
-
-    protected void addTramites(Adopcion adopcion){
-        assert(adopcion != null);
-        tramites.add(adopcion);
-        
-    }
-
-    protected void rmTramites(Adopcion adopcion){
-        assert(adopcion != null);
-        tramites.remove(adopcion);
-    }
-    
-    public void tramitarAdopcion(Animal animal, Adoptante adoptante){
+    public void tramitarAdopcion(Animal animal, Adoptante adoptante) {
         assert(adoptante != null);
         assert(animal != null);
         if(animal.getEstado() != EstadoAnimal.ENTRATAMIENTO){
@@ -53,8 +31,7 @@ public class Voluntario extends Socio{
         }
     }
 
-    public void registrar(Animal animal){
-        super.getRefugio().registrar(animal);
-        //assert(super.getRefugio().getAnimalesRegistrados().size()>0);
+    public void registrar(Animal animal) {
+        animalesRegistrados.add(animal);
     }
 }

@@ -35,4 +35,8 @@ public class Adopcion {
         return voluntario;
     }
     
+    @Override
+    public String toString(){
+        return "\tFecha :"+fecha.toString()+ ": Animal :"+ animal.toString() + ": Adoptante"+ adoptante.toString() + ": Voluntario : "+ voluntario.toString() ;
+    }
 }

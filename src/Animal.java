@@ -48,4 +48,9 @@ public class Animal {
         assert (adopcion != null);
         this.adopcion = adopcion;
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName()+ ": Estado :"+ estado;
+    }
 }

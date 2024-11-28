@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 public class Donante extends Socio{
 
@@ -11,18 +12,18 @@ public class Donante extends Socio{
         super(fecha);
     }
 
-    public List<Donacion> getDonaciones() {
-        return donaciones;
+    public Enumeration<Donacion> getDonaciones() {
+        return java.util.Collections.enumeration(donaciones);
     }
 
-    public void addDonacion(Donacion donacion) {
+    protected void addDonacion(Donacion donacion) {
         assert(donacion != null);
         assert(donacion.getCantidad() > 0);
         
         donaciones.add(donacion);
     }
 
-    public void rmDonacion(Donacion donacion) {
+    protected void rmDonacion(Donacion donacion) {
         assert(donacion != null);
 
         donaciones.remove(donacion);
@@ -48,4 +49,6 @@ public class Donante extends Socio{
             System.out.println("La cantidad debe ser positiva.");
         }
     }
+
+    
 }

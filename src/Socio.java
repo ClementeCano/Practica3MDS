@@ -26,4 +26,9 @@ public abstract class Socio {
         assert refugio != null;
         this.refugio = refugio;
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getName();
+    }
 }
