@@ -1,17 +1,22 @@
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
-public class Donante extends Socio{
+import java.util.ArrayList;
+
+public class Donante extends Socio implements InterfazDonante{
 
     private List<Donacion> donaciones;
 
     public Donante(Date fecha) {
 
         assert(fecha != null);
+        
+        donaciones = new ArrayList<>();
 
         super(fecha);
     }
 
+    @Override
     public Enumeration<Donacion> getDonaciones() {
         return java.util.Collections.enumeration(donaciones);
     }
@@ -29,6 +34,7 @@ public class Donante extends Socio{
         donaciones.remove(donacion);
     }
 
+    @Override
     public void donar(Float cantidad) {
         assert(cantidad > 0);
         if (cantidad > 0) {
@@ -49,6 +55,4 @@ public class Donante extends Socio{
             System.out.println("La cantidad debe ser positiva.");
         }
     }
-
-    
 }

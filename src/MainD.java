@@ -1,7 +1,6 @@
 import java.util.Date;
 import java.util.Iterator;
-
-public class Main {
+public class MainD {
     public static void main(String[] args) {
         // Crear instancias de las clases necesarias
         Refugio refugio = new Refugio();
@@ -9,39 +8,38 @@ public class Main {
         Animal gato = new Animal(new Date(),"Pintuflas");
         Animal perro = new Animal(new Date(), "Firulais");
         Animal caballo = new Animal(new Date(), "Pegaso");
-        Voluntario voluntario = new Voluntario(new Date());
-        Adoptante adoptante = new Adoptante(new Date());
-        Donante donante = new Donante(new Date());
+        SocioMultirrol socio = new SocioMultirrol(new Date());
 
-        // Asignar el refugio a las al voluntario, adoptante y donante
-        voluntario.setRefugio(refugio);
-        adoptante.setRefugio(refugio);
-        donante.setRefugio(refugio);
+
+        // Asignar el refugio al socio multirrol
+        socio.setRefugio(refugio);
 
         //Asignar al donante la cantidad a donar
-        donante.donar((float)1000);
+            // El socio multirrol actúa como donante, que se encarga de donar
+        socio.donar((float)1000);
 
         //Asignar a los animales el refugio
-        voluntario.registrar(gato);
-        voluntario.registrar(perro);
-        voluntario.registrar(caballo);
+            // El socio multirrol actúa como voluntario, que se encarga de registrar el animal
+        socio.registrar(gato);  
+        socio.registrar(perro);
+        socio.registrar(caballo);
 
         //Adoptamos un animal
-        adoptante.adoptar(gato, voluntario);  
-        adoptante.adoptar(perro, voluntario);
-        
-        
-        //Mostramos los resultados
-        Iterator<Adopcion> it_adop = voluntario.getTramites().asIterator();
+            // El socio multirrol actúa como adoptante, que se encarga de tramitar la adopción
+        socio.adoptar(gato);  
+        socio.adoptar(perro); 
 
-        System.out.println("Mostramos todos los tramites del "+voluntario.toString());
+
+        //Mostramos los resultados
+
+        Iterator<Adopcion> it_adop = socio.getTramites().asIterator();
+        System.out.println("Mostramos todos los tramites del "+socio.toString());
         while(it_adop.hasNext()){
             System.out.println("\t"+it_adop.next().toString()); 
         }
 
-        Iterator<Animal> it_anim= refugio.getAnimalesRefugiados().asIterator();
+        Iterator<Animal> it_anim = refugio.getAnimalesRefugiados().asIterator();
         System.out.println("Mostramos los animales del Refugio refugiados actualmente");
-
         if (it_anim.hasNext()) {
             while(it_anim.hasNext()){
                 System.out.println("\t"+it_anim.next().toString()); 
@@ -49,12 +47,10 @@ public class Main {
         } else {
             System.out.println("\tNo hay animales refugiados");
         }
-        
-
 
         Iterator<Animal> it_ref = refugio.getAnimalesRegistrados().asIterator();
+        System.out.println("Mostramos los animales del Refugio registrados en todo el tiempo");
         if (it_ref.hasNext()) {
-            System.out.println("Mostramos los animales del Refugio registrados en todo el tiempo");
             while(it_ref.hasNext()){
                 System.out.println("\t"+it_ref.next().toString()); 
             }
@@ -82,8 +78,8 @@ public class Main {
             System.out.println("\tNo hay animales registrados");
         }
         
-        Iterator<Donacion> it_don = donante.getDonaciones().asIterator();
-        System.out.println("Mostramos las donaciones del donante "+ donante.toString());
+        Iterator<Donacion> it_don = socio.getDonaciones().asIterator();
+        System.out.println("Mostramos las donaciones del SocioMultirrol "+ socio.toString());
         if(it_don.hasNext()){
             while(it_don.hasNext()){
                 System.out.println(it_don.next().toString());
@@ -94,3 +90,7 @@ public class Main {
         
     }
 }
+
+
+
+

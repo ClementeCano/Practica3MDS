@@ -71,6 +71,7 @@ public class Refugio {
         assert(animalesRegistrados != null);
         a.setEstado(EstadoAnimal.DISPONIBLE);
         addAnimalRegistrado(a);
+        addAnimalRefugiado(a);
         assert(animalesRegistrados.size()>0);
         assert(animalesRegistrados.contains(a));
     }
@@ -86,8 +87,5 @@ public class Refugio {
         socios.add(s);
     }
 
-    @Override
-    public String toString() {
-        return this.getClass().getName();
-    }
+    
 }

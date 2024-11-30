@@ -5,7 +5,7 @@ public class Adopcion {
     private Animal animal;
     private Adoptante adoptante;
     private Voluntario voluntario;
-
+    
     public Adopcion(Date fecha, Animal animal, Adoptante adoptante, Voluntario voluntario) {
         
         assert (fecha != null);
@@ -21,6 +21,8 @@ public class Adopcion {
         adoptante.addAdopcion(this);
         animal.setAdopcion(this);
     }
+    
+
     public Date getFecha() {
         return fecha;
     }
@@ -37,6 +39,7 @@ public class Adopcion {
     
     @Override
     public String toString(){
-        return "\tFecha :"+fecha.toString()+ ": Animal :"+ animal.toString() + ": Adoptante"+ adoptante.toString() + ": Voluntario : "+ voluntario.toString() ;
+        
+        return "\tFecha: " + fecha + "; Animal: " + animal.toString()+ "; Adoptante: " + adoptante.toString() + "; Voluntario: " + voluntario.toString();
     }
 }

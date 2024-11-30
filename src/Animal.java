@@ -5,13 +5,23 @@ public class Animal {
     private EstadoAnimal estado;
     private Refugio refugio;
     private Adopcion adopcion;
+    private String nombre;
 
-    public Animal(Date nacimiento) {
+    public Animal(Date nacimiento, String nombre) {
 
         assert (nacimiento != null);
-
+        assert (nombre != null);
+        this.nombre = nombre;
         this.nacimiento = nacimiento;
         this.estado = EstadoAnimal.DISPONIBLE;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        assert (nombre != null);
+        this.nombre = nombre;
     }
     public Date getNacimiento() {
         return nacimiento;
@@ -51,6 +61,6 @@ public class Animal {
 
     @Override
     public String toString() {
-        return this.getClass().getName()+ ": Estado :"+ estado;
+        return nombre + "; Estado: " + estado;
     }
 }

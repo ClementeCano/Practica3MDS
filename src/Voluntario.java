@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 
-public class Voluntario extends Socio{
+public class Voluntario extends Socio implements InterfazVoluntario{
 
     private List<Adopcion> tramites;
 
@@ -13,6 +13,7 @@ public class Voluntario extends Socio{
         tramites = new ArrayList<>();
     }
 
+    @Override
     public Enumeration<Adopcion> getTramites() {
         return java.util.Collections.enumeration(tramites);
     }
@@ -28,6 +29,7 @@ public class Voluntario extends Socio{
         tramites.remove(adopcion);
     }
     
+    @Override
     public void tramitarAdopcion(Animal animal, Adoptante adoptante){
         assert(adoptante != null);
         assert(animal != null);
@@ -53,6 +55,7 @@ public class Voluntario extends Socio{
         }
     }
 
+    @Override
     public void registrar(Animal animal){
         super.getRefugio().registrar(animal);
         //assert(super.getRefugio().getAnimalesRegistrados().size()>0);
